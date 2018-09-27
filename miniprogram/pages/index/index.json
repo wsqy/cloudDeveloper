@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "dange": "plugin://myPlugin/dange",
+    "WxComment": "/WxComment/component/WxComment/WxComment"
+  }
+}
