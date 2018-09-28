@@ -9,6 +9,7 @@ Page({
     takeSession: false,
     requestResult: '',
     canIUse: false,
+    loginFlag: wx.getStorageSync('session_key'),
   },
 
   onShow: function () {
@@ -22,7 +23,7 @@ Page({
   },
 
   onLoad: function() {
-    var loginFlag = wx.getStorageSync('session_key');
+    let {loginFlag} = this.data;
     if (loginFlag) {
       console.log("存在loginFlag: " + loginFlag)
       // 检查 session_key 是否过期
@@ -30,7 +31,7 @@ Page({
         // session_key 有效（未过期）
         success: function () {
           // 业务逻辑处理
-          console.log(' session_key 有效（未过期）')
+          console.log(' session_key 有效（未过期）请执行业务逻辑')
         },
         // session_key 过期
         fail: function () {
@@ -42,7 +43,7 @@ Page({
     }else {
       // 无 session_key，作为首次登录
       console.log(' 无 session_key，作为首次登录')
-      // this.wxLogin();
+      this.wxLogin();
     }
 
     if (!wx.cloud) {
@@ -114,7 +115,8 @@ Page({
   },
 
   onGetUserInfo: function(e) {
-    if (!this.logged && e.detail.userInfo) {
+    let { logged, loginFlag } = this.data;
+    if (!logged && e.detail.userInfo) {
       console.log(e)
       this.setData({
         logged: true,
@@ -127,11 +129,11 @@ Page({
         data: {
           iv: e.detail.iv,
           data: e.detail.encryptedData,
-          session_key: wx.getStorageSync('session_key'),
+          session_key: loginFlag,
         },
         success: res => {
           console.log('结果: ', res)
-      
+
         },
         complete: info => {
           console.log('调用 wxbizdatacrypt 通用返回')
