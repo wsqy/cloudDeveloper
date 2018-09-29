@@ -19,7 +19,9 @@
   <view class="wx-setting-page">
     <button  bindtap="openSetting" > 打开设置页面 </button>
   </view>
-
+  <view class="wx-get-phone-number">
+    <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" > 获取手机号 </button>
+  </view>
   <!-- 点赞
   <dange typeId='7' openId='oQl8V0WP9ft7jvH7YZOiCnpw1oqE' appId='wx77ddd85d04814b4a' pid='123' /> 
   -->

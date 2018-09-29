@@ -1,5 +1,6 @@
 //index.js
 const app = getApp()
+const globalData = app.globalData
 
 Page({
   data: {
@@ -9,7 +10,6 @@ Page({
     takeSession: false,
     requestResult: '',
     canIUse: false,
-    loginFlag: wx.getStorageSync('session_key'),
   },
 
   onShow: function () {
@@ -23,9 +23,8 @@ Page({
   },
 
   onLoad: function() {
-    let {loginFlag} = this.data;
-    if (loginFlag) {
-      console.log("存在loginFlag: " + loginFlag)
+    if (globalData.session_key) {
+      console.log("存在 session_key: " + globalData.session_key)
       // 检查 session_key 是否过期
       wx.checkSession({
         // session_key 有效（未过期）
@@ -115,8 +114,7 @@ Page({
   },
 
   onGetUserInfo: function(e) {
-    let { logged, loginFlag } = this.data;
-    if (!logged && e.detail.userInfo) {
+    if (!this.data.logged && e.detail.userInfo) {
       console.log(e)
       this.setData({
         logged: true,
@@ -129,7 +127,7 @@ Page({
         data: {
           iv: e.detail.iv,
           data: e.detail.encryptedData,
-          session_key: loginFlag,
+          session_key: globalData.session_key,
         },
         success: res => {
           console.log('结果: ', res)
@@ -143,6 +141,28 @@ Page({
         }
       })
     }
+  },
+  onGetPhoneNumber: function(e){
+    console.log(e);
+    // 解密 解密信息
+    wx.cloud.callFunction({
+      name: 'wxbizdatacrypt',
+      data: {
+        iv: e.detail.iv,
+        data: e.detail.encryptedData,
+        session_key: globalData.session_key,
+      },
+      success: res => {
+        console.log('结果: ', res)
+
+      },
+      complete: info => {
+        console.log('调用 wxbizdatacrypt 通用返回')
+      },
+      fail: err => {
+        console.log('调用 wxbizdatacrypt 失败： ', err)
+      }
+    })
   },
 
   onGetOpenid: function() {
