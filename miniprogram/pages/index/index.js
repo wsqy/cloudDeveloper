@@ -1,4 +1,5 @@
 //index.js
+import { wxbizdatacrypt } from '../../lib/common'
 const app = getApp()
 const globalData = app.globalData
 
@@ -30,18 +31,18 @@ Page({
         // session_key 有效（未过期）
         success: function () {
           // 业务逻辑处理
-          console.log(' session_key 有效（未过期）请执行业务逻辑')
+          console.log('session_key 有效（未过期）请执行业务逻辑')
         },
         // session_key 过期
         fail: function () {
           // session_key 过期，重新登录
-          console.log(' session_key 过期，重新登录')
+          console.log('session_key 过期，重新登录')
           this.wxLogin();
         }
       });
     }else {
       // 无 session_key，作为首次登录
-      console.log(' 无 session_key，作为首次登录')
+      console.log('无 session_key，作为首次登录')
       this.wxLogin();
     }
 
@@ -115,53 +116,33 @@ Page({
 
   onGetUserInfo: function(e) {
     if (!this.data.logged && e.detail.userInfo) {
-      console.log(e)
       this.setData({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
         userInfo: e.detail.userInfo
       })
-      // 解密 解密信息
-      wx.cloud.callFunction({
-        name: 'wxbizdatacrypt',
-        data: {
-          iv: e.detail.iv,
-          data: e.detail.encryptedData,
-          session_key: globalData.session_key,
+      wxbizdatacrypt({
+        iv: e.detail.iv,
+        encrypted_data: e.detail.encryptedData,
+        session_key: globalData.session_key,
+        success_callback: function(res){
+          console.log("res data")
+          console.log(res)
         },
-        success: res => {
-          console.log('结果: ', res)
-
-        },
-        complete: info => {
-          console.log('调用 wxbizdatacrypt 通用返回')
-        },
-        fail: err => {
-          console.log('调用 wxbizdatacrypt 失败： ', err)
-        }
       })
+
     }
   },
   onGetPhoneNumber: function(e){
     console.log(e);
-    // 解密 解密信息
-    wx.cloud.callFunction({
-      name: 'wxbizdatacrypt',
-      data: {
-        iv: e.detail.iv,
-        data: e.detail.encryptedData,
-        session_key: globalData.session_key,
+    wxbizdatacrypt({
+      iv: e.detail.iv,
+      encrypted_data: e.detail.encryptedData,
+      session_key: globalData.session_key,
+      success_callback: function (res) {
+        console.log("res data")
+        console.log(res)
       },
-      success: res => {
-        console.log('结果: ', res)
-
-      },
-      complete: info => {
-        console.log('调用 wxbizdatacrypt 通用返回')
-      },
-      fail: err => {
-        console.log('调用 wxbizdatacrypt 失败： ', err)
-      }
     })
   },
 

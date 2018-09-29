@@ -29,11 +29,11 @@ WXBizDataCrypt.prototype.decryptData = function (encryptedData, iv) {
 };
 
 exports.main = async (event) => {
-  let { iv, data, session_key } = event
+  let { iv, encrypted_data, session_key } = event
   // 这里微信的 id 和 secret 从配置文件中获取
   let appId = 'wx77ddd85d04814b4a'
   return new Promise((resolve, reject) => {
     const pc = new WXBizDataCrypt(appId, session_key)
-    resolve(pc.decryptData(data, iv))
+    resolve(pc.decryptData(encrypted_data, iv))
   })
 }
