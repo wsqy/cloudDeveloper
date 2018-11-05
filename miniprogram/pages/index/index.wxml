@@ -22,9 +22,7 @@
   <view class="wx-get-phone-number">
     <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" > 获取手机号 </button>
   </view>
-  <!-- 点赞
-  <dange typeId='7' openId='oQl8V0WP9ft7jvH7YZOiCnpw1oqE' appId='wx77ddd85d04814b4a' pid='123' /> 
-  -->
+
 
   <!-- 上传图片 -->
   <view class="uploader">
@@ -50,10 +48,5 @@
       <text>快速新建云函数</text>
     </navigator>
   </view>
-
-  <!-- 评论
-  <view class="WxComment">
-    <WxComment tipOne="Markdown " tipTwo="will be supported, Powered by yicm." submitBtnText="回复" articleID="123" contentLen='1'></WxComment>
-  </view> -->
 
 </view>
