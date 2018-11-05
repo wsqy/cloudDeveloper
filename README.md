@@ -10,3 +10,7 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+
+# icon
+
+- [使用阿里矢量图标](https://blog.csdn.net/hknishi_zs/article/details/80694681)

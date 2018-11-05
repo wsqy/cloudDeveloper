@@ -17,6 +17,7 @@
     <button  bindtap="wxLogin" > 登录 </button>
   </view>
   <view class="wx-setting-page">
+    <text class="iconfont icon-settings">设置</text>
     <button  bindtap="openSetting" > 打开设置页面 </button>
   </view>
   <view class="wx-get-phone-number">
