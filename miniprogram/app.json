@@ -32,7 +32,7 @@
         "selectedIconPath": "images/bottom/find_fill.png"
       },
       {
-        "pagePath": "pages/addFunction/addFunction",
+        "pagePath": "pages/storageConsole/storageConsole",
         "text": "订单",
         "iconPath": "images/bottom/order.png",
         "selectedIconPath": "images/bottom/order_fill.png"

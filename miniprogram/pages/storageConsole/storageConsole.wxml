@@ -1,6 +1,14 @@
 <!--pages/storageConsole/storageConsole.wxml-->
 <view class="container">
-
+  <!-- 上传图片 -->
+  <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    <view class="uploader-container" wx:if="{{imagePath}}">
+      <image class="uploader-image" src="{{imagePath}}" mode="aspectFit" bindtap="previewImg"></image>
+    </view>
+  </view>
   <view class="list">
     <view class="list-item" bindtap="testCgi">
       <text class="black">上传成功</text>
