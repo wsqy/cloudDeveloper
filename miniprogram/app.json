@@ -11,5 +11,38 @@
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bbbbbb",
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/bottom/home.png",
+        "selectedIconPath": "images/bottom/home_fill.png"
+      },
+      {
+        "pagePath": "pages/addFunction/addFunction",
+        "text": "任务",
+        "iconPath": "images/bottom/find.png",
+        "selectedIconPath": "images/bottom/find_fill.png"
+      },
+      {
+        "pagePath": "pages/addFunction/addFunction",
+        "text": "订单",
+        "iconPath": "images/bottom/order.png",
+        "selectedIconPath": "images/bottom/order_fill.png"
+      },
+      {
+        "pagePath": "pages/databaseGuide/databaseGuide",
+        "text": "我的",
+        "iconPath": "images/bottom/mine.png",
+        "selectedIconPath": "images/bottom/mine_fill.png"
+      }
+    ]
   }
 }
