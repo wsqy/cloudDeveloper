@@ -18,6 +18,9 @@
   </view>
   <view class="wx-setting-page">
     <text class="iconfont icon-settings">设置</text>
+    <text class="iconfont icon-tag">tag</text>
+    <text class="iconfont icon-add1">icon-add</text>
+    <text class="iconfont icon-settings_light">icon-settings_light</text>
     <button  bindtap="openSetting" > 打开设置页面 </button>
   </view>
   <view class="wx-get-phone-number">
