@@ -2,8 +2,8 @@
 <view class="container">
   <!-- 上传图片 -->
   <view class="uploader">
-    <view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
+    <view class="uploader-text" >
+      <button bindtap="doUpload" > 上传图片 </button>
     </view>
     <view class="uploader-container" wx:if="{{imagePath}}">
       <image class="uploader-image" src="{{imagePath}}" mode="aspectFit" bindtap="previewImg"></image>
