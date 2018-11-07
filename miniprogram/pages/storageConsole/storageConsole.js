@@ -72,4 +72,13 @@ Page({
       }
     })
   },
+  submitData: function(e){
+    console.log('form发生了submit事件，携带数据为：')
+    console.log(e.detail)
+    wx.showToast({
+      icon: 'none',
+      title: e.detail.formId,
+    })
+    console.log('form发生了submit事件，携带数据为：')
+  }
 })
