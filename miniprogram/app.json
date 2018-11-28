@@ -1,9 +1,12 @@
 {
   "pages": [
+    "pages/data_select/index/index",
     "pages/index/index",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction"
+    "pages/addFunction/addFunction",
+    "pages/data_select/detail/detail",
+    "pages/data_select/list/list"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -40,6 +43,12 @@
       {
         "pagePath": "pages/databaseGuide/databaseGuide",
         "text": "我的",
+        "iconPath": "images/bottom/mine.png",
+        "selectedIconPath": "images/bottom/mine_fill.png"
+      },
+      {
+        "pagePath": "pages/data_select/index/index",
+        "text": "考试",
         "iconPath": "images/bottom/mine.png",
         "selectedIconPath": "images/bottom/mine_fill.png"
       }

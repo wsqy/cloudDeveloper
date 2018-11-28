@@ -7,3 +7,11 @@
   align-items: center;
   box-sizing: border-box;
 } 
+
+
+.display-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

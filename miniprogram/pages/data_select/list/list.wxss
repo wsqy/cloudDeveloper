@@ -1,0 +1,48 @@
+/* 
+CSS书写顺序
+
+开始制作魔法衣的时候，可以在心里默念口诀：场合—>尺寸—>装饰—>颜色—>其他。记好这个口诀，就可以召唤漂(guī)亮(fàn)的魔法衣给主人啦。
+
+首先应该确定魔法衣的使用场合（position，top，right，z-index，display，float等），接着规划魔法衣的尺寸（width，height，padding，margin等）、魔法衣的装饰（font，line-height，letter-spacing，color- text-align等）、魔法衣的颜色（background，border等），最后加上其他的修饰（animation，transition等）。 
+*/
+
+.form-search {
+  height: 80rpx;
+  margin-top: 10rpx;
+}
+
+.form-search .search {
+  justify-content: flex-start;
+
+  width: 70%;
+  height: 100%;
+  margin-left: 20rpx;
+
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+}
+
+.form-search .search .searchcion {
+  width: 20px;
+  height: 20px;
+  margin-left: 20rpx;
+}
+
+.form-search .search input {
+  margin-left: 60rpx;
+
+  border-radius: 5px;
+}
+
+.form-search .sousuo {
+  width: 20%;
+  height: 100%;
+  margin-left: 15rpx;
+}
+
+.form-search .sousuo button{
+  height: 100%;
+  width: 100%;
+  
+  font-size: 38rpx;
+}

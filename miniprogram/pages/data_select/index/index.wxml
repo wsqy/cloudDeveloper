@@ -1,0 +1,6 @@
+  <!-- 操作数据库 -->
+  <view class="tunnel">
+    <navigator url="../list/list?db_name={{key_value}}" open-type="navigate" class="tunnel-text">
+      <text>打开12306数据库</text>
+    </navigator>
+  </view>
