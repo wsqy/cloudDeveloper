@@ -46,3 +46,15 @@ CSS书写顺序
   
   font-size: 38rpx;
 }
+
+.result-container{
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.result-list{
+  height: 500rpx;
+
+  background-color: blue;
+}
