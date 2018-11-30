@@ -1,20 +1,22 @@
-<form report-submit="true" bindsubmit="submitData">
+<form report-submit="true" bindsubmit="fetchResultList">
   <view class="form-search display-flex">
     <view class="search display-flex">
       <icon class="searchcion" size="20" type="search"></icon>
       <input class="" placeholder="请输入关键字" value="{{search_value}}" />
     </view>
-    <view class="sousuo display-flex" >
+    <view class="sousuo display-flex">
       <button form-type="submit">搜索</button>
     </view>
   </view>
 </form>
 
 <view class="result-container display-flex">
-    <text> {{result_type}}</text>
-    <scroll-view scroll-y="true" enable-back-to-top="true" class="result-list display-flex">
-      <view wx:for="{{result_list}}">
-  {{index}}: {{item.message}}
-</view>
-    </scroll-view>
+  <view class="result-type display-flex">
+    <text> {{result_type}} </text>
+  </view>
+  <view class="result-list display-flex">
+  <view wx:for="{{result_list}}" wx:key="index" wx:for-item="item" class="result-item display-flex">
+    {{index}}: {{item.passenger_name}}
+  </view>
+  </view>
 </view>

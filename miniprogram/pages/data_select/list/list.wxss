@@ -14,9 +14,9 @@ CSS书写顺序
 .form-search .search {
   justify-content: flex-start;
 
-  width: 70%;
+  width: 75%;
   height: 100%;
-  margin-left: 20rpx;
+  margin-left: 10rpx;
 
   border: 1px solid #d0d0d0;
   border-radius: 10rpx;
@@ -53,8 +53,20 @@ CSS书写顺序
   align-items: flex-start;
 }
 
-.result-list{
-  height: 500rpx;
+.result-container .result-type{
+  width: 45%;
+  margin: 20rpx 50rpx 10rpx 5%;
+  height: 80rpx;
+  background-color:green;
 
-  background-color: blue;
+}
+
+.result-container .result-list{
+  flex-direction: column;
+}
+
+.result-container .result-item{
+  height: 80rpx;
+  margin: 10rpx;
+  background-color: #d0d0d0;
 }
