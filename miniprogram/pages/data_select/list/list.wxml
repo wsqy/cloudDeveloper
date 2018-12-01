@@ -1,10 +1,10 @@
-<form report-submit="true" bindsubmit="fetchResultList">
+<form report-submit="true" bindsubmit="submitData">
   <view class="form-search display-flex">
     <view class="search display-flex">
       <icon class="searchcion" size="20" type="search"></icon>
-      <input class="" placeholder="请输入关键字" value="{{search_value}}" />
+      <input class="" placeholder="请输入关键字" value="{{search_value}}" bindinput="searchInput"/>
     </view>
-    <view class="sousuo display-flex">
+    <view class="sousuo display-flex" bindtap="refreshResultList">
       <button form-type="submit">搜索</button>
     </view>
   </view>

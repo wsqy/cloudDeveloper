@@ -6,7 +6,7 @@ Page({
   data: {
     db_name: '',
     search_value: '',
-    result_type: '结果类型',
+    result_type: '最新数据',
     result_list: [],
     skip: 0,
     limit: 20
@@ -70,7 +70,14 @@ Page({
    */
   onReachBottom: function () {
     console.log("------开始上拉加载-----------")
-    this.reachResultList()
+    const that = this
+    that.fetchResultList({
+      success: function (res) {
+        that.setData({
+          result_list: that.data.result_list.concat(res.data)
+        })
+      }
+    })
     console.log("------结束上拉加载-----------")
   },
 
@@ -80,6 +87,11 @@ Page({
   onShareAppMessage: function () {
 
   },
+  searchInput: function(e){
+    this.setData({
+      search_value: e.detail.value
+    })
+  },
 
   submitData: function(e){
     console.log('form发生了submit事件，携带数据为：')
@@ -88,16 +100,10 @@ Page({
       icon: 'none',
       title: e.detail.formId,
     })
-    console.log('form发生了submit事件，携带数据为：')
-    // todo 缺搜索词的设置
-    this.refreshResultList();
   },
 
   fetchResultList: function (param) {
     const that = this
-    that.setData({
-      result_type: '查询结果'
-    })
     const db = wx.cloud.database()
 
     const _ = db.command
@@ -138,7 +144,6 @@ Page({
       .limit(this.data.limit)
       .get({
       success: function (res) {
-        console.log('----获取数据成功----')
         console.log(res)
         that.setData({
           skip: that.data.skip + res.data.length
@@ -146,11 +151,6 @@ Page({
         if(param.hasOwnProperty('success')){
           param.success(res)
         }
-        console.log('----获取数据成功----')
-      },
-      complete: function (res){
-        console.log('----获取数据完成----')
-        console.log('----获取数据完成----')
       }
     })
   },
@@ -165,17 +165,6 @@ Page({
         })
       }
     })
-  },
-
-  reachResultList: function () {
-    const that = this
-    that.fetchResultList({
-      success: function (res) {
-        that.setData({
-          result_list: result_list.push.apply(result_list, res.data)
-        })
-      }
-    })
-  },
+  }
 
 })
