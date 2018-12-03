@@ -1,3 +1,6 @@
+<multiFormid>
+  <view>点击获取多个formid</view>
+</multiFormid>
 <form report-submit="true" bindsubmit="submitData">
   <view class="form-search display-flex">
     <view class="search display-flex">
